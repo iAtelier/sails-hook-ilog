@@ -1,6 +1,6 @@
 {
   "name": "@iatelier/sails-hook-ilog",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "official logging platform implementation for iAtelier",
   "main": "index.js",
   "sails": {
