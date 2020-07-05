@@ -1,0 +1,102 @@
+.log-list {
+	position: relative;
+	padding: 2em 0;
+	min-height: calc(100vh - 5rem);
+	
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 25px;
+		height: 100%;
+		width: 4px;
+		
+		z-index: -1; // to fix the issue with headers inside the container
+		
+		background: rgba(77, 171, 171, 1);
+	    box-shadow: 0 0px 0.4rem rgba(0, 0, 0, 0.4);
+	    
+	    @include breakpoint(md) {
+			left: 50%;
+			margin-left: -2px;
+		}
+	}
+}
+
+
+.log-list > .item {
+
+	position: relative;
+	margin: 2em 0;
+	
+	@include breakpoint(md) {
+		margin: 4em 0;
+	}
+	
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+	
+	@include breakpoint(md) {
+	
+		&:nth-child(even) .entry {
+			float: right;
+		}
+		&:nth-child(even) .blog-read-more {
+			float: right;
+		}
+		&:nth-child(even) .blog-aside {
+			left: auto;
+			right: 52%;
+	// 		width: 48%;
+			text-align: right;
+		}
+		&:nth-child(even) .blog-aside > * {
+			float: right;
+		}
+	}
+	> .entry {
+		position: relative;
+		margin: 0px auto;
+		
+		box-sizing: border-box;
+		
+		-webkit-background-clip: padding-box; /* for Safari */
+		background-clip: padding-box; 
+			
+		width: calc(100% - 2rem);
+	
+		@include breakpoint(sm) {
+			width:100%; 
+		}
+	
+		
+		@include breakpoint(md) {
+			margin-left: 0;
+			width: 75%;
+			margin: 0 4.8%;
+			
+			&:before {
+				top: 34px;
+				width: 9.3%;
+				left: 100%;
+				border-color: transparent;
+				border-left-color: white;
+			}
+			.blog-aside {
+				margin: 0px;
+				position: absolute;
+				left: 52%;
+				top: 6px;
+			}
+		}
+	}
+}

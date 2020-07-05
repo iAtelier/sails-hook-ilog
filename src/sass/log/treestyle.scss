@@ -1,0 +1,163 @@
+.log-list {
+	width: 98%;
+	margin: 0 auto;
+	padding: 0 10%;
+	border-radius: 2px;
+	@include breakpoint(md) {
+		width: 95%;
+	}
+	@include breakpoint(xl) {
+		width: 90%;
+	}
+	@include breakpoint(xx) {
+		width: 85%;
+	}
+
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+	> header {
+		@extend .h2;
+		text-align: center;
+		.title {
+			@extend .shadow;
+			display: inline-block;
+			padding: .5rem 1rem;
+			background-color: $second-color;
+			border-radius: .2rem;
+		}
+	}
+	
+	> .item {
+		
+		> .entry {
+			display: flex;
+			flex-direction: column;
+			@include breakpoint(md) {
+				flex-direction: row;
+			}
+		}
+		@include breakpoint(md) {
+			&:nth-child(even) > .entry {
+				flex-direction: row-reverse;
+			}
+		}
+		
+		> .entry {
+			> .tags {
+				flex-basis: 28%;
+			}
+			> .date {
+				margin: .2rem 1rem;
+				text-align: center;
+				font-size: .8rem;
+				@include breakpoint(md) {
+					margin: 0px;
+					text-align: left;
+					flex-basis: 3rem;
+					writing-mode: tb;
+					display: flex;
+					align-items: center;
+				}
+			}
+			> .content {
+				flex-grow: 1;
+				display: flex;
+			    flex-direction: column;
+			    justify-content: center;
+			}
+		}
+	}
+	
+	> footer {
+		text-align: center;
+		> .button, > .status {
+			@extend .shadow;
+			display: inline-block;
+			padding: .5rem 1rem;
+			background-color: $second-color;
+			border-radius: .2rem;
+		}
+		> .status {
+			background-color: $main-color;
+		}
+	}
+}
+
+.log-list > .item > .entry > .content {
+	> .kind {
+		position: relative;
+		
+		align-self: flex-end;
+		top: 0.7rem;
+		right: 1rem;
+		
+		margin: 0px;
+		padding: .1rem .4rem;
+		width: fit-content;
+		
+		border-radius: .2rem;
+		background-color: rgba($second-color, 1);
+		font-size: .9em;
+	}
+	> .link {
+		@extend .shadow;
+		display: block;
+		margin: 0px;
+		padding: 0px;
+		
+		color: black;
+		background-color: white;
+		
+		text-shadow: none;
+		text-decoration: none;
+		
+		border-radius: .4rem;
+// 		border-top: .2rem solid rgba($second-color, .5);
+		
+		opacity: .9;
+		&:hover {
+			opacity: 1;
+// 			border-top: .2rem solid rgba($second-color, 1);
+		}
+		
+		> .thumbnail {
+			margin: 0px;
+			
+			border-top-right-radius: .4rem;
+			border-top-left-radius: .4rem;
+	// 		box-shadow: 0px 0px .1rem rgba(0, 0, 0, .5);
+			
+			width: 100%;
+			max-height: 80vh;
+			height: 30rem;
+			
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		> .title {
+			margin: .4rem .7rem;
+			font-weight: 300;
+		}
+	}
+}
+.log-list > .item > .entry.post > .content > .link {
+	> .title {
+		font-size: 1.5em;
+	}
+}
+.log-list > .item > .entry.stuff > .content {
+	> .link {
+		background-color: rgba($main-color, .7);
+		color: $main-color-op;
+		&:hover {
+			background-color: rgba($second-color, 1);
+		}
+		> .title {
+			font-size: 1.3em;
+		}
+	}
+}

@@ -1,0 +1,82 @@
+.log {
+	grid-template-rows: max-content 1fr max-content;
+	max-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	@include breakpoint(md) {
+		box-shadow: 0px 0px .2rem black;
+		margin: 2vh 2vw;
+		max-height: 96vh;
+	}
+	@include breakpoint(lg) {
+		margin: 5vh 3vw;
+		max-height: 90vh;
+		max-width: 94vw;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	@include breakpoint(xl) {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+
+	> * {
+		width: 100%;
+		max-height: 100%;
+	}
+	> main {
+		flex-grow: 1;
+		height: calc(100% - 3rem);
+	}
+	> header {
+	}
+	> footer {
+	}
+	@include breakpoint(md) {
+	}
+	@include breakpoint(lg) {
+		> header, > footer {
+			order: 1;
+			width: 40%;
+		}
+		> main {
+			order: 2;
+			width: 60%;
+			height: 90vh;
+			max-height: 90vh;
+			padding-bottom: 0px;
+		}
+		> header {
+			height: calc(90vh - 3.6rem);
+		}
+		> footer {
+		}
+	}
+	@include breakpoint(xl) {
+		> * {
+			flex-grow: 1;
+			max-height: 90vh;
+			overflow: scroll;
+		}
+		> main {
+			width: 58%;
+		}
+		> header {
+			height: auto;
+			width: 24%;
+		}
+		> footer {
+			width: 18%;
+			order: 3;
+		}
+	}
+	> main {
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+		overflow-x: hidden;
+		box-sizing: border-box;
+	}
+}

@@ -1,0 +1,29 @@
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+	font: 100%/1.6 'Lato', sans-serif;
+	font-weight: 400;
+}
+@media screen and (min-width: 35.5em) {
+	html, button, input, select, textarea,
+	.pure-g [class *= "pure-u"] 
+	{
+		font-family: 'Lato', sans-serif;
+		font-weight: 400;
+	}
+}
+@media screen and (min-width: 48em) {
+	html, button, input, select, textarea,
+	.pure-g [class *= "pure-u"]
+	{
+		font-family: 'Lato', sans-serif;
+		font-weight: 400;
+	}
+}
+@media screen and (min-width: 64em) {
+	html, button, input, select, textarea,
+	.pure-g [class *= "pure-u"]
+	{
+		font-family: 'Lato', sans-serif;
+		font-weight: 400;
+	}
+}

@@ -1,0 +1,135 @@
+.log {
+	color: black;
+	text-shadow: none;
+	overflow: visible;
+
+	> header, > footer {
+		z-index: 2;
+		text-shadow: none;
+		background-color: white;
+		box-shadow: 0px 0px .1rem rgba(0, 0, 0, .5);
+	}
+	> main {
+		z-index: 1;
+	}
+	@include breakpoint(md) {
+		> header {
+			border-radius: .4rem .4rem 0px 0px;
+		}
+		> footer {
+			border-radius: 0px 0px .4rem .4rem;
+		}
+	}
+	@include breakpoint(lg) {
+		> header {
+			border-radius: .4rem 0px 0px 0px;
+		}
+		> footer {
+			border-radius: 0px 0px 0px .4rem;
+		}
+	}
+	@include breakpoint(xl) {
+		> header {
+			border-radius: .4rem 0px 0px .4rem;
+		}
+		> footer {
+			border-radius: 0px .4rem .4rem 0px;
+		}
+	}
+
+
+	> header {
+		> p {
+			margin: 0px .4rem;
+		}
+		.profile {
+			@include breakpoint(lg) {
+				overflow-y: scroll;
+				max-height: calc(100% - 2rem);
+			}
+			> * {
+				padding: .4rem .8rem;
+				display: block;
+			}
+			.detail {
+				font-size: .8rem;
+				line-height: 1;
+			}
+			.avatar-container {
+				padding: 0px;
+				background-color: $main-color !important;
+				@include breakpoint(md) {
+					display: flex;
+				}
+			}
+			.avatar {
+				margin: 1rem;
+				padding: 0px;
+				display: inline-block;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				min-width: 2rem;
+				min-height: 2rem;
+				width: auto;
+				height: auto;
+				max-height: 30vh;
+				max-width: 100%;
+				@include breakpoint(lg) {
+					margin: auto;
+					max-height: 40vh;
+				}
+				@include breakpoint(xl) {
+					margin: auto;
+					max-height: 30vh;
+				}
+			}
+		}
+
+	}
+	> footer {
+		margin: 0px;
+		padding: 0px;
+		> menu {
+			justify-content: space-around;
+			display: flex;
+			flex-flow: row;
+			flex-wrap: wrap;
+			margin: 0px;
+			padding: 0px;
+			@include breakpoint(xl) {
+				flex-flow: column;
+			}
+			> a {
+				margin: 0px !important;
+				padding: .4rem !important;
+				> * {
+					display: inline;
+				}
+				> span {
+					display: none;
+				}
+				@include breakpoint(md) {
+					> span {
+						display: inline;
+					}
+				}
+				@include breakpoint(lg) {
+					padding: .8rem !important;
+					> span {
+						display: none;
+					}
+				}
+				@include breakpoint(xl) {
+					display: block;
+					padding: .8rem !important;
+
+					> span {
+						display: inline;
+					}
+				}
+			}
+
+		}
+	}
+}

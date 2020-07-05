@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title></title>
+		<meta name="description" content="@stack('description')">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700&amp;subset=latin-ext" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<script>
+			Window.Config = {
+				"host": "<%= vue_config.host %>",
+				"base": "<%= vue_config.base %>",
+				"title": "My Blog",
+				"profile": <%= vue_config.profile.to_json %>,
+				"digital": { "uri": "<%= namespace %>" },
+				"analog": { "uri": "weblog" }
+			};
+		</script>
+		<style>
+			html {
+				color: white;
+				text-shadow: 0px 0px 0.4rem black;
+				background: darkblue url('<%= Ilog::configuration.background_image %>') no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<noscript>
+			Notice: this website works only with latest edition of browsers which support Javascript!
+		</noscript>
+		<div id="bp-log">
+		</div>
+		<>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+.post-single {
+	overflow: visible;
+
+	margin: 0px 0px;
+	margin-top: -1rem;
+
+	background-color: white;
+
+	@include breakpoint(sm) {
+		margin: 0px .5rem;
+		margin-top: -2rem;
+	}
+
+	@include breakpoint(md) {
+		margin: 0px 7vw;
+		margin-top: -3rem;
+	}
+	@media screen and (min-width: 64em) {
+		margin: 0px 5vw;
+		margin-top: -3rem;
+	}
+	@media screen and (min-width: 80em) {
+		margin: 0px 10vw;
+		margin-top: -3rem;
+	}
+	> .container {
+
+		margin: .5rem; // for shadow
+		padding: 1.4rem 0px;
+		@include breakpoint(sm) {
+			margin: 1rem;
+			padding: 1.2rem 0px;
+		}
+		@include breakpoint(md) {
+			margin: 1.5rem;
+			padding: 2rem 0px;
+		}
+		@include breakpoint(lg) {
+			float: left;
+			margin: 0px 2.5% 4rem 2.5%;
+			box-sizing: border-box;
+			width: 70%;
+		}
+
+		box-shadow:
+/* 			inset 0px 0.2rem 0.2rem -0.2rem rgba(0, 0, 0, .8),  // in case of not overflowing the thumbnail ... */
+			0 0 0.2rem rgba(0,0,0,.8);
+
+		background-color: white;
+	}
+	.post-single > .tag-container {
+		@include breakpoint(lg) {
+			float: right;
+			margin: 0px 2.5%;
+			box-sizing: border-box;
+			width: 30%;
+		}
+	}
+}
