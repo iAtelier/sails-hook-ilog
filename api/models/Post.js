@@ -1,5 +1,4 @@
-// module.exorts = 
-var Post = sails.hooks.borm.bookshelf.model(
+module.exorts = sails.hooks.borm.bookshelf.model(
     'Post',
     sails.hooks.borm.bookshelf.model('Book').extend({
         tableName: 'posts',
