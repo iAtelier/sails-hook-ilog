@@ -32,6 +32,12 @@ module.exports = {
 		// perform('RETRIVE_ALL');
 
 		let timestamps = await Timestamp.query({where: {timestampable_type: 'posts'}}).orderBy('publish', 'DESC').fetchAll();
+
+		console.log('checking what is in the Post');
+		console.log(sails.hooks.borm);
+		console.log(sails.hooks.borm.bookshelf);
+		console.log(sails.hooks.borm.bookshelf.model);
+		console.log(sails.hooks.borm.bookshelf.model('Post'));
 		
 		postsCount = await Post.count();
 

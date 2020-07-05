@@ -1,4 +1,5 @@
-let Post = sails.hooks.borm.bookshelf.model(
+// module.exorts = 
+var Post = sails.hooks.borm.bookshelf.model(
     'Post',
     sails.hooks.borm.bookshelf.model('Book').extend({
         tableName: 'posts',
@@ -17,4 +18,4 @@ let Post = sails.hooks.borm.bookshelf.model(
 );
 
 // module.exports = sails.hooks.borm.bookshelf.model('Post', Post);
-module.exports = Post;
+// module.exports = Post;

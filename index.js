@@ -13,6 +13,8 @@ module.exports = function (sails) {
     sails.config.http.middleware,
     mockSexy
   );
+
+  const Post = require('./api/models/Post');
   
   // Load policies and config from default directories
   // loader.configure();
