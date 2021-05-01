@@ -69,7 +69,7 @@ var _ = require('underscore')
 var moment = require('moment')
 
 export default {
-	name: 'Log',
+	name: 'BPLog',
 	components: {
 		Profile,
 		Tunekit,

@@ -6,8 +6,8 @@
 					<span class="kind" v-if="content.kind"><span>{{ content.kind }}</span></span>
 					<span class="date">{{ content.timestamp.publish | date }}</span>
 				</div>
-				<template v-if="content.thumbnail">
-					<img class="thumbnail" :src="thumbnail()" />
+				<template v-if="content.cover">
+					<img class="cover" :src="cover()" />
 				</template>
 				<div class="title h1" v-html="content.title.value"></div>
 			</div>
@@ -15,7 +15,7 @@
 				<template v-if="typeof(content.keywords) !== 'undefined' && content.keywords.length != 0">
 						<div class="tags">
 							<template v-for="keyword in content.keywords">
-								<span class="tag">
+								<span class="tag" :key="keyword.id">
 									<!--<router-link :to="{ name: 'tag', params: { id: keyword.id }}">-->
 										<span><i class="fas fa-tag"></i></span> {{ keyword.word }}
 									<!--</router-link>-->
@@ -33,6 +33,7 @@
 var moment = require('moment');
 import PostBody from '../components/PostBody'
 import app from '../configs/app'
+var _ = require('underscore')
 
 export default {
 	name: 'post',
@@ -65,8 +66,10 @@ export default {
 				this.post = this.content;
 			}
 		},
-		thumbnail() {
-			return Window.Config.host + '/' +  Window.Config.digital.uri + '/' + this.content.id + '/' + this.content.thumbnail.name;
+		cover() {
+			if ( (!_.isEmpty(this.content.cover)) && (!_.isEmpty(this.content.cover.file)) ) {
+				return Window.Config.host + '/' +  Window.Config.digital.uri + '/' + this.content.id + '/' + this.content.cover.file;
+			} else { return null }
 		},
 		retrivePostBody() {
 			let self = this;

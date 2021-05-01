@@ -5,8 +5,8 @@
 				<span class="kind" v-if="content.kind"><span><i class="fas fa-external-link-square-alt"></i> {{ content.kind }}</span></span>
 				<span class="date">{{ content.timestamp.publish | date }}</span>
 			</div>
-			<template v-if="content.thumbnail">
-				<img class="thumbnail" :src="thumbnail()" />
+			<template v-if="content.cover">
+				<img class="cover" :src="cover()" />
 			</template>
 			<div class="title h1" v-html="content.title.value"></div>
 		</div>
@@ -37,8 +37,10 @@ export default {
 		}
 	},
 	methods: {
-		thumbnail() {
-			return this.content.thumbnail.path + this.content.thumbnail.name;
+		cover() {
+			if ( (!_.isEmpty(this.content.cover)) && (!_.isEmpty(this.content.cover.file)) ) {
+				return this.content.cover.path + this.content.cover.file;
+			} else { return 'undefined'; }
 		},
 	},
 	filters: {

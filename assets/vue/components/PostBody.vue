@@ -1,8 +1,8 @@
 <template>
 	<div class="post-body">
 		<header class="text" style="background-color: transparent">
-			<template v-if="content.thumbnail">
-				<img class="thumbnail" :src="thumbnail()" />
+			<template v-if="content.cover">
+				<img class="cover" :src="cover()" />
 			</template>
 			<h1 v-html="content.title.value" v-on:click="$emit('closePost')"></h1>
 		</header>
@@ -57,7 +57,7 @@ export default {
 				{property: 'og:type', content: 'article'},
 				{property: 'og:title', content: this.content.title.value},
 				{property: 'og:description', content: this.description},
-				{property: 'og:image', content: this.thumbnail()}
+				{property: 'og:image', content: this.cover()}
 			],
 		}
 	},
@@ -75,11 +75,11 @@ export default {
 		description () {
 			return this.content.content.substring(0,50) + "..."
 		},
-		thumbnail() {
-			if (typeof this.content.thumbnail !== 'undefined') {
-				return this.url() + this.content.thumbnail.name
+		cover() {
+			if ( (!_.isEmpty(this.content.cover)) && (!_.isEmpty(this.content.cover.file)) ) {
+				return this.url() + this.content.cover.file
 			} else {
-				return 'undefined'
+				return false;
 			}
 		},
 	},

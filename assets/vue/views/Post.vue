@@ -2,8 +2,8 @@
 
 	<modal v-on:close="close()">
 
-		<template v-if="content.thumbnail">
-			<img :src="thumbnail" class="shadow" style="max-width: 100%; margin: 0px auto; display: block; position: relative; z-index: -1;" />
+		<template v-if="content.cover">
+			<img :src="cover" class="shadow" style="max-width: 100%; margin: 0px auto; display: block; position: relative; z-index: -1;" />
 		</template>
 
 		<div class="post-single">
@@ -150,8 +150,12 @@ export default {
 		  })
 	},
 	computed: {
-		thumbnail: function() {
-			return Window.Config.host + '/' +  Window.Config.digital.uri + '/' + this.content.id + '/' + this.content.thumbnail.name;
+		cover: function() {
+			if ( (!_.isEmpty(this.content.cover)) && (!_.isEmpty(this.content.cover.file)) ) {
+				return Window.Config.host + '/' +  Window.Config.digital.uri + '/' + this.content.id + '/' + this.content.cover.file;
+			} else {
+				return null;
+			}
 		},
 	}
 }

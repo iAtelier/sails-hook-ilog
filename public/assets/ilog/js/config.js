@@ -63,29 +63,28 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 233);
+/******/ 	return __webpack_require__(__webpack_require__.s = 242);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 161:
+/***/ 163:
 /***/ (function(module, exports) {
 
 Window.Config = {
-	"host": "http://localhost:1337",
-	'base': '/',
-	"title": "My Blog",
-	"profile": { "avatar": "", "author": "", "status": "", "website": "", "email": "", "location": "" },
-	"digital": { "uri": "log" },
-	"analog": { "uri": "weblog" }
+				"host": "http://localhost:2300",
+				"title": "My Blog",
+				"profile": { "avatar": "", "author": "", "status": "", "website": "", "email": "", "location": "" },
+				"digital": { "uri": "log" },
+				"analog": { "uri": "weblog" }
 };
 
 /***/ }),
 
-/***/ 233:
+/***/ 242:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(161);
+module.exports = __webpack_require__(163);
 
 
 /***/ })

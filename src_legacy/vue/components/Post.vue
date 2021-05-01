@@ -6,7 +6,7 @@
 					<span class="kind" v-if="content.kind"><span>{{ content.kind }}</span></span>
 					<span class="date">{{ content.timestamp.publish | date }}</span>
 				</div>
-				<template v-if="this.content.cover && this.content.cover.hasOwnProperty('name')">
+				<template v-if="this.content.cover && this.content.cover.hasOwnProperty('file')">
 					<img class="thumbnail" :src="cover()" />
 				</template>
 				<div class="title h1" v-html="content.title.value"></div>
@@ -66,8 +66,8 @@ export default {
 			}
 		},
 		cover() {
-			if ( this.content.cover && this.content.cover.name !== undefined ) {
-				return Window.Config.host + '/' +  Window.Config.digital.uri + '/' + this.content.id + '/' + this.content.cover.name;
+			if ( this.content.cover && this.content.cover.file !== undefined ) {
+				return Window.Config.host + '/' +  Window.Config.digital.uri + '/' + this.content.id + '/' + this.content.cover.file;
 			} else { return ''; }
 		},
 		retrivePostBody() {
