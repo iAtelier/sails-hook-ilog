@@ -45,6 +45,7 @@
 		.profile {
 			@include breakpoint(lg) {
 				overflow-y: scroll;
+				scrollbar-width: none;
 				max-height: calc(100% - 2rem);
 			}
 			> * {

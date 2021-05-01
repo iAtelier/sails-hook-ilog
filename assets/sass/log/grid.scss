@@ -21,6 +21,9 @@
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
+		max-width: 80rem;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	> * {
@@ -32,8 +35,10 @@
 		height: calc(100% - 3rem);
 	}
 	> header {
+		scrollbar-width: none;
 	}
 	> footer {
+		scrollbar-width: none;
 	}
 	@include breakpoint(md) {
 	}
@@ -78,5 +83,6 @@
 		-webkit-overflow-scrolling: touch;
 		overflow-x: hidden;
 		box-sizing: border-box;
+		scrollbar-width: none;
 	}
 }
