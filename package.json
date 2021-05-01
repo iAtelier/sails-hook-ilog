@@ -1,6 +1,6 @@
 {
   "name": "@iatelier/sails-hook-ilog",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "official logging platform implementation for iAtelier",
   "main": "index.js",
   "sails": {
@@ -29,6 +29,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "cross-env": "^7.0.3",
     "font-awesome": "^4.7.0",
     "imagesloaded": "^4.1.4",
     "jquery": "^3.4.1",

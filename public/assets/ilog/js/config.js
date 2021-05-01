@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 242);
+/******/ 	return __webpack_require__(__webpack_require__.s = 233);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 163:
+/***/ 161:
 /***/ (function(module, exports) {
 
 Window.Config = {
@@ -82,10 +82,10 @@ Window.Config = {
 
 /***/ }),
 
-/***/ 242:
+/***/ 233:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(163);
+module.exports = __webpack_require__(161);
 
 
 /***/ })

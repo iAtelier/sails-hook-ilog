@@ -2,7 +2,7 @@
 
 	<modal v-on:close="close()">
 
-		<template v-if="his.content.cover.hasOwnProperty('name')">
+		<template v-if="his.content.cover.hasOwnProperty('file')">
 			<img :src="cover" class="shadow" style="max-width: 100%; margin: 0px auto; display: block; position: relative; z-index: -1;" />
 		</template>
 
@@ -151,7 +151,7 @@ export default {
 	},
 	computed: {
 		cover: function() {
-			return Window.Config.host + '/' +  Window.Config.digital.uri + '/' + this.content.id + '/' + this.content.cover.name;
+			return Window.Config.host + '/' +  Window.Config.digital.uri + '/' + this.content.id + '/' + this.content.cover.file;
 		},
 	}
 }

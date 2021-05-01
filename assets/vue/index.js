@@ -18,13 +18,13 @@ Vue.use(VueMasonryPlugin)
 import lodash from 'lodash';
 Object.defineProperty(Vue.prototype, '_', { value: lodash });
 
-import Ilog from './Ilog'
+import Log from './Log'
 
 import router from './router.js'
 
-const ibaIlog = new Vue({
+const bpLog = new Vue({
 	el: '#bp-log',
 	router,
-	template: '<Ilog/>',
-	components: { Ilog },
+	template: '<Log/>',
+	components: { Log },
 })
