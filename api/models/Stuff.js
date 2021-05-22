@@ -1,13 +1,13 @@
 module.exorts = sails.hooks.borm.bookshelf.model(
-    'Post',
+    'Stuff',
     sails.hooks.borm.bookshelf.model('Book').extend({
-        tableName: 'Post',
+        tableName: 'Stuff',
         virtuals: {
 			kind: function() {
-				return 'post';
+				return 'stuff';
             },
             uniq: function() {
-				return 'post' + this.get('id');
+				return 'stuff' + this.get('id');
 			}
 		},
     }, {
@@ -15,6 +15,3 @@ module.exorts = sails.hooks.borm.bookshelf.model(
         GROUPINGS: ['keywords']
     }),
 );
-
-// module.exports = sails.hooks.borm.bookshelf.model('Post', Post);
-// module.exports = Post;

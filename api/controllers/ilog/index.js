@@ -14,9 +14,12 @@ module.exports = {
 	fn: async function (inputs, exits) {
 		
 		const Post = sails.hooks.borm.bookshelf.model('Post');
+		const Stuff = sails.hooks.borm.bookshelf.model('Stuff');
 		const Timestamp = sails.hooks.borm.bookshelf.model('Timestamp');
 
-		let GN = 7, // Golden Number
+		var scope = this;
+
+		let GN = 100, // Golden Number
 			page = 0,
 			count = 0,
 			posts =  {},
@@ -29,19 +32,24 @@ module.exports = {
 			// console.log(page);
 		}
 
-		// perform('RETRIVE_ALL');
+		// perform('RETRIVE_ALL');   .whereIn('id', [1, 2, 3])
+		let qb = Timestamp.query();
+		let bookTypes = ['Post', 'Stuff'];
+		//let timestamps = await Timestamp
+		let timestamps = 
+		    await Timestamp.forge().where('timestampable_type', 'in', bookTypes).orderBy('publish', 'DESC').fetchAll();
+			//.query({ whereIn: { timestampable_type: ['posts', 'stuffs'] } }).orderBy('publish', 'DESC').fetchAll();
 
-		let timestamps = await Timestamp.query({where: {timestampable_type: 'posts'}}).orderBy('publish', 'DESC').fetchAll();
-
-		console.log('checking what is in the Post');
-		console.log(sails.hooks.borm);
-		console.log(sails.hooks.borm.bookshelf);
-		console.log(sails.hooks.borm.bookshelf.model);
-		console.log(sails.hooks.borm.bookshelf.model('Post'));
+		// console.log('checking what is in the Post');
+		// console.log(sails.hooks.borm);
+		// console.log(sails.hooks.borm.bookshelf);
+		// console.log(sails.hooks.borm.bookshelf.model);
+		// console.log(sails.hooks.borm.bookshelf.model('Post'));
 		
 		postsCount = await Post.count();
+		stuffsCount = await Stuff.count();
 
-		count = postsCount;
+		count = postsCount + stuffsCount;
 
 		// console.log(`count is equal to ${count}`);
 		
@@ -49,57 +57,53 @@ module.exports = {
 		// console.log(timestamps);
 
 		// var perform = function(aName) {
-			if ( !(inputs.id) ) {
-
-				// console.log('no input id');
-				// console.log(GN * page);
-				let itemsSelected = timestamps.slice( (GN * page), (GN) * (page + 1) );
-				// console.log(itemsSelected.length);
+		if ( !(inputs.id) ) {
+			// console.log('no input id');
+			// console.log(GN * page);
+			let itemsSelected = timestamps.slice( (GN * page), (GN) * (page + 1) );
+			// console.log(itemsSelected.length);
 				
-				for (const [index, item] of Object.entries(itemsSelected) ) {
-					// console.log(`proccessing the post with id ${item.get('id')}`);
-					data[index] = await Post.forge({id: item.get('timestampable_id') }).fetch({withRelated: Post.DIMENSIONS});
-					// skipped JSONification
+			for (const [index, item] of Object.entries(itemsSelected) ) {
+				// console.log(`proccessing the post with id ${item.get('id')}`);
+				
+				const TemporaryBookClass = sails.hooks.borm.bookshelf.model(item.get('timestampable_type'));
+				
+				data[index] = await TemporaryBookClass
+					.forge({id: item.get('timestampable_id') })
+					.fetch({withRelated: TemporaryBookClass.DIMENSIONS});
+				// skipped JSONification
 
-					// piece = Object.const_get(item.timestampable_type.capitalize).find(item.timestampable_id)
-					// data[index] = JSON.parse(piece.to_json(:include => ['title', 'slug', 'timestamp', 'peoples', 'keywords'], :methods => [:kind, :uniq]))
-				}
-				// console.log('finished the process!')
+				// piece = Object.const_get(item.timestampable_type.capitalize).find(item.timestampable_id)
+				// data[index] = JSON.parse(piece.to_json(:include => ['title', 'slug', 'timestamp', 'peoples', 'keywords'], :methods => [:kind, :uniq]))
+			}
 
-			} else {
+		} else {
+			
+			let timestamp = await Timestamp
+				.query({where: {timestampable_type: 'Post', timestampable_id: inputs.id }})
+				.fetch();
 
-				// console.log('detected an input id')
-
-				let timestamp = await Timestamp.query({where: {timestampable_type: 'posts', timestampable_id: inputs.id }}).fetch();
-
-				// console.log('MOST_IMPORTANT timestamp is equal to ')
-				// console.log(timestamp);
-
-				retriveIndex = timestamps.map( item => item.get('id')) .indexOf(timestamp.get('id'));
+			retriveIndex = timestamps.map( item => item.get('id')) .indexOf(timestamp.get('id'));
 				page = Math.floor(retriveIndex / GN);
 
-				let itemsSelected = timestamps.slice( (GN * page), (GN) * (page + 1) );
+			let itemsSelected = timestamps.slice( (GN * page), (GN) * (page + 1) );
 
-				for (const [index, item] of Object.entries(itemsSelected) ) {
-					
-					let mPost = await Post.forge({id: item.get('timestampable_id') }).fetch({withRelated: Post.DIMENSIONS});
-					
-					data[index] = mPost.toJSON();
+			for (const [index, item] of Object.entries(itemsSelected) ) {
 
-					// console.log('we also need to check for a match between:');
-					// console.log(item.get('id'));
-					// console.log('and the below one:')
-					// console.log(timestamp.get('id'));
+				const TemporaryBookClass = sails.hooks.borm.bookshelf.model(item.get('timestampable_type'));
 					
-					if ( item.get('id') === timestamp.get('id') ) {
-						// console.log('we found a match!');
+				let mPost = await TemporaryBookClass
+					.forge({id: item.get('timestampable_id') })
+					.fetch({withRelated: TemporaryBookClass.DIMENSIONS});
+					
+				data[index] = mPost.toJSON();
 
-						data[index]['content'] = mPost.content();
-						data[index]['view'] = 'post_body';
-					}
+				if ( item.get('id') === timestamp.get('id') && item.get('timestampable_type') == 'Post' ) {
+					data[index]['content'] = mPost.content();
+					data[index]['view'] = 'post_body';
 				}
 			}
-		// };
+		}
 
 		var paginate = function() {
 

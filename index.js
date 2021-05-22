@@ -15,6 +15,7 @@ module.exports = function (sails) {
   );
 
   const Post = require('./api/models/Post');
+  const Stuff = require('./api/models/Stuff');
   
   // Load policies and config from default directories
   // loader.configure();
