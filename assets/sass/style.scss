@@ -1,15 +1,15 @@
-@import "/libs/selectize";
+// @import "/libs/selectize";
 
 @import "~@piratesatelier/css-ordinary/src/scss/config";
 @import "~@piratesatelier/css-ordinary/src/scss/custom";
 
-@import "/variables";
+@import "variables";
 
-@import "/components/tag.scss";
-@import "/components/single";
-@import "/components/card";
+@import "components/tag.scss";
+@import "components/single";
+@import "components/card";
 
-@import "/log/style";
+@import "log/style";
 
 @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&subset=latin-ext');
 

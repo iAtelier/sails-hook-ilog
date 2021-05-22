@@ -1,1 +1,25 @@
-!function(t){function o(r){if(n[r])return n[r].exports;var e=n[r]={i:r,l:!1,exports:{}};return t[r].call(e.exports,e,e.exports,o),e.l=!0,e.exports}var n={};o.m=t,o.c=n,o.i=function(t){return t},o.d=function(t,n,r){o.o(t,n)||Object.defineProperty(t,n,{configurable:!1,enumerable:!0,get:r})},o.n=function(t){var n=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(n,"a",n),n},o.o=function(t,o){return Object.prototype.hasOwnProperty.call(t,o)},o.p="./",o(o.s=241)}({162:function(t,o){Window.Config={host:"http://localhost:2300",title:"My Blog",profile:{avatar:"",author:"",status:"",website:"",email:"",location:""},digital:{uri:"log"},analog:{uri:"weblog"}}},241:function(t,o,n){t.exports=n(162)}});
+/******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!*****************************!*\
+  !*** ./assets/js/config.js ***!
+  \*****************************/
+Window.Config = {
+  "host": "http://localhost:2300",
+  "title": "My Blog",
+  "profile": {
+    "avatar": "",
+    "author": "",
+    "status": "",
+    "website": "",
+    "email": "",
+    "location": ""
+  },
+  "digital": {
+    "uri": "log"
+  },
+  "analog": {
+    "uri": "weblog"
+  }
+};
+/******/ })()
+;
