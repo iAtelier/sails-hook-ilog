@@ -1,0 +1,123 @@
+// .log { 
+	
+// 	> header {
+// 		display: grid;
+// 		grid-template-areas: "information avatar" "status status" "tunekit tunekit";
+// 		grid-template-columns: 2fr 1fr;
+// 		@include breakpoint(sm) {
+// 			grid-template-areas: "information avatar" "status status" "tunekit tunekit";
+// 		}
+// 		@include breakpoint(md) {
+// 			grid-template-areas: "information avatar"
+// 								"status avatar"
+// 								"tunekit tunekit";
+// 		}
+// 		@include breakpoint(lg) {
+// 			grid-template-areas: "avatar information information tunekit"
+// 								 "avatar status status tunekit";
+// 			grid-template-columns: 1fr 2fr 1fr 2fr;
+// 		}
+		
+		
+// 		margin: .9rem .0px 0px 0px;
+// 		padding: 0px;
+		
+// 		@include breakpoint(md) {
+// 			margin: 2rem auto 0px auto;
+// 			max-width: 90vw;
+// 		}
+		
+// 		overflow: visible;
+		
+// 		box-shadow: 0px 0px .2rem black;
+		
+// 		> .avatar {
+// 			min-height: 10vh;
+// 			height: 100%;
+// 			grid-area: avatar;
+			
+// 			background-position: center;
+// 			background-repeat: no-repeat;
+// 			background-size: cover;
+// 		}
+		
+// 		> .status {
+// 			grid-area: status;
+			
+// 			padding: .4rem 1rem;
+// 			font-size: 1.1em;
+// 			background-color: rgba($second-color, 1);
+// 		}
+		
+// 		> .information {
+// 			grid-area: information;
+			
+// 			overflow: visible;
+			
+// 			margin: 0px;
+// 			padding: .4rem 1rem;
+			
+// 			background-color: rgba($second-color, 1);
+// 			.author {
+// 			}
+// 			> * {
+// 				margin: .2rem 0px;
+// 			}
+// 			.detail {
+// 				> .addresses {
+// 					font-size: 0.85em;
+// 				}
+// 			}
+// 		}
+		
+// 		> .tunekit {
+// 			grid-area: tunekit;
+// 			padding: .4rem;
+// 			@include breakpoint(sm) {
+// 				padding: 0px;
+// 			}
+// 			background-color: rgba($second-color, 1);
+			
+// 			> .contact {
+// 				display: flex;
+// 				flex-direction: row;
+// 				text-align: center;
+// 				> * {
+// 					flex-grow: 1;
+// 				}
+// 			}
+			
+// 			form {
+// 				padding: .5rem;
+// 				display: flex;
+// 				flex-direction: row;
+// 				overflow: visible;
+// 				.multiselect.input-multiselect {
+// 					flex-grow: 1;
+// 					width: calc(100% - 4rem);
+// 	// 				z-index: 20;
+// 				}
+// 				button {
+// 					width: 2rem;
+// 					background: none;
+// 					border: none;
+// 				}
+// 			}
+			
+// 		}
+// 	}
+	
+// 	> footer {
+// 		margin: 0px 0px .9rem 0px;
+// 		@include breakpoint(md) {
+// 			margin: 0px auto 2rem auto;
+// 			max-width: 90vw;
+// 		}
+		
+// 		padding: 2rem;
+// 		box-shadow: 0px 0px .4rem black;
+		
+// 		color: white;
+// 		background-color: rgba($second-color, 1);
+// 	}
+// }

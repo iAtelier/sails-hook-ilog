@@ -44,9 +44,9 @@
 		}
 		.profile {
 			@include breakpoint(lg) {
-				overflow-y: scroll;
+				overflow-y: auto;
 				scrollbar-width: none;
-				max-height: calc(100% - 2rem);
+				height: 100%;
 			}
 			> * {
 				padding: .4rem .8rem;
@@ -123,7 +123,7 @@
 				}
 				@include breakpoint(xl) {
 					display: block;
-					padding: .8rem !important;
+					padding: .8rem .8rem 0.8rem 1.6rem !important;
 
 					> span {
 						display: inline;

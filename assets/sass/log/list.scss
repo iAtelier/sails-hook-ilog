@@ -1,70 +1,4 @@
 .log-list {
-	> header {
-		background: linear-gradient(rgba($main-color, 1), rgba($main-color, .9));
-		max-height: fit-content;
-		.profile {
-			display: flex;
-			> * {
-				padding: .8rem;
-				display: inline-block;
-			}
-			.avatar-container {
-				padding: 0px;
-				background-color: $main-color !important;
-			}
-			img {
-				margin: 1rem;
-				max-width: 45vw;
-				max-height: 50vh;
-				padding: 0px;
-				min-width: 4rem;
-				min-height: 4rem;
-			}
-		}
-		> .tunekit {
-			padding: .4rem;
-			display: flex;
-			flex-direction: column;
-			@include breakpoint(md) {
-				flex-flow: row;
-			}
-			justify-content: space-around;
-			form {
-				padding: .4rem;
-				display: flex;
-				flex-grow: 2;
-				.multiselect__tags {
-					background-color: transparent;
-				}
-				.multiselect {
-					.input {
-						box-sizing: border-box;
-						padding: .1rem .4rem;
-					}
-					flex-grow: 2;
-					margin: 0px .4rem;
-					font-size: 1rem;
-				}
-				button {
-					margin: .1rem;
-					flex-grow: 1;
-					line-height: 1;
-					padding: 0rem .4rem;
-					font-size: .8rem;
-					border: 1px solid gray;
-					background-color: #FFFAFA;
-					border-radius: .2rem;
-					color: gray;
-					box-shadow: 0px 0px .15rem rgba(0, 0, 0, .4);
-					&:hover {
-						background-color: white;
-						border: 1px solid $main-color;
-						color: $main-color;
-					}
-				}
-			}
-		}
-	}
 	> header, > footer {
 		nav {
 			text-align: center;
@@ -115,11 +49,15 @@
 		.title {
 			padding: 0px 1em .4em 1em;
 			display: block;
+			> span {
+				text-indent: 0 !important;
+				display: inline-block;
+			}
 		}
 
 		img {
 			display: block;
-			margin: 0px auto;
+			margin: 0px auto 1rem auto;
 			padding: 0px;
 			max-height: 75vh;
 		}

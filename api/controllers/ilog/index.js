@@ -19,7 +19,7 @@ module.exports = {
 
 		var scope = this;
 
-		let GN = 100, // Golden Number
+		let GN = 7, // Golden Number
 			page = 0,
 			count = 0,
 			posts =  {},

@@ -1,12 +1,14 @@
 <template>
 	<div class="profile">
 		<span class="avatar-container"><img class="avatar" :src="avatar" /></span>
-		<div>
-			<span class="h2"><a :href="website">{{ author }}</a></span><br />
-			<span class="detail">
-				<a :href="address"><i class="fas fa-book"></i> Digital Log</a> | <i class="icon icon-location"></i> {{ location }}
-			</span><br />
-			<span class="status">{{ status }}</span>
+		<div class="description">
+			<span class="name h2"><a :href="website">{{ author }}</a></span><br />
+			<ul class="detail">
+				<li><span class="status">{{ status }}</span></li>
+				<li><a :href="address"><i class="fas fa-book"></i> {{ address }}</a>
+				<li><i class="icon icon-location"></i> {{ location }}</li>
+				<li><i class="fas fa-calendar"></i> since {{ established }}</li>
+			</ul>
 		</div>
 	</div>
 </template>
@@ -26,7 +28,8 @@ export default {
 			author: app.profile.author,
 			status: app.profile.status,
 			avatar: app.profile.avatar,
-// 			email: app.profile.email,
+			established: app.profile.established,
+			email: app.profile.email,
 			website: app.profile.website,
 			tag: {},
 			tags: [],

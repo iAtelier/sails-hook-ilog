@@ -9,16 +9,16 @@
 		</header>
 
 		<main class="log-list">
-			<header>
+			<!-- <header>
 				<profile class="lg-no"></profile>
-				<!-- <tunekit></tunekit> -->
-				<!-- <stories></stories> -->
+				<!-- <tunekit></tunekit> 
+				<!-- <stories></stories> 
 				<span v-if="title" v-html="title" class="title"></span>
 				<nav v-if="page.prev" class>
 					<span class="status" v-if="loading">{{ loading }}</span>
 					<span class="button" v-if="!loading" v-on:click="retriveNewer()"><i class="icon icon-more-horiz"></i></span>
 				</nav>
-			</header>
+			</header> -->
 
 			<item v-for="(item, index) in items"
 				:content="item"
@@ -37,19 +37,19 @@
 		<footer>
 			<menu>
 				<a class="inlink" :href="'mailto:' + email"><i class="fas fa-envelope"></i>
-					<span class="no xl-yes">Email</span>
+					<span class="label no xl-yes">Email</span>
 				</a>
 				<router-link to="/"><i class="fas fa-home"></i>
-					<span class="no xl-yes">Home</span>
+					<span class="label no xl-yes">Home</span>
 				</router-link>
 				<a class="inlink" :href="atom"><i class="fas fa-rss-square"></i>
-					<span class="no xl-yes">Atom</span>
+					<span class="label no xl-yes">Atom</span>
 				</a>
 				<a class="inlink" :href="rss"><i class="fas fa-rss"></i>
-					<span class="no xl-yes">RSS</span>
+					<span class="label no xl-yes">RSS</span>
 				</a>
 				<a class="inlink"><i class="fas fa-question-circle"></i>
-					<span class="no xl-yes">Help</span>
+					<span class="label no xl-yes">Help</span>
 				</a>
 			</menu>
 		</footer>

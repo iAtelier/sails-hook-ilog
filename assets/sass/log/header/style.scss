@@ -1,0 +1,112 @@
+.log {
+footer > menu {
+    > a {
+        @include breakpoint(lg) {
+            padding-left: 1.6rem;
+        }
+        > .label {
+            background-color: transparent !important;
+            color: #444;
+            padding: 0px .8rem;
+            font-size: .8;
+        }
+    }
+}
+> header {
+    background: linear-gradient(rgba($main-color, 1), rgba($second-color, 1));
+    // max-height: fit-content;
+    .profile {
+        display: flex;
+        @include breakpoint(lg) {
+            flex-direction: column;
+        }
+        > * {
+            padding: 0px;
+            display: inline-block;
+        }
+        > .avatar-container {
+            padding: 0px;
+            background-color: $main-color !important;
+            > img.avatar {
+                margin: .8rem;
+                border-radius: 0rem !important;
+                box-shadow: 0px 0px 1px black;
+                @include breakpoint(lg) {
+                    width: 70%;
+                    margin: 1.6rem auto;
+                }
+            }
+        }
+        > .description {
+            padding-top: .8rem;
+            > .name {
+                font-weight: 700;
+                text-align: center;
+            }
+            > * {
+                display: inline-block;
+                padding: .4rem .8rem;
+            }
+            ul {
+                margin: .0rem;
+                list-style: none;
+                li {
+                    display: block;
+                    margin: .4rem;
+                }
+            }
+        }
+        img {
+            margin: 1rem;
+            max-width: 45vw;
+            max-height: 50vh;
+            padding: 0px;
+            min-width: 4rem;
+            min-height: 4rem;
+        }
+    }
+    > .tunekit {
+        padding: .4rem;
+        display: flex;
+        flex-direction: column;
+        @include breakpoint(md) {
+            flex-flow: row;
+        }
+        justify-content: space-around;
+        form {
+            padding: .4rem;
+            display: flex;
+            flex-grow: 2;
+            .multiselect__tags {
+                background-color: transparent;
+            }
+            .multiselect {
+                .input {
+                    box-sizing: border-box;
+                    padding: .1rem .4rem;
+                }
+                flex-grow: 2;
+                margin: 0px .4rem;
+                font-size: 1rem;
+            }
+            button {
+                margin: .1rem;
+                flex-grow: 1;
+                line-height: 1;
+                padding: 0rem .4rem;
+                font-size: .8rem;
+                border: 1px solid gray;
+                background-color: #FFFAFA;
+                border-radius: .2rem;
+                color: gray;
+                box-shadow: 0px 0px .15rem rgba(0, 0, 0, .4);
+                &:hover {
+                    background-color: white;
+                    border: 1px solid $main-color;
+                    color: $main-color;
+                }
+            }
+        }
+    }
+}
+}

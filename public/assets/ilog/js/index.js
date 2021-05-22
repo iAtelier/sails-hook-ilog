@@ -9217,6 +9217,8 @@ var moment = __webpack_require__(0);
 //
 //
 //
+//
+//
 
 
 
@@ -9231,7 +9233,8 @@ var moment = __webpack_require__(0);
 			author: __WEBPACK_IMPORTED_MODULE_0__configs_app__["a" /* default */].profile.author,
 			status: __WEBPACK_IMPORTED_MODULE_0__configs_app__["a" /* default */].profile.status,
 			avatar: __WEBPACK_IMPORTED_MODULE_0__configs_app__["a" /* default */].profile.avatar,
-			// 			email: app.profile.email,
+			established: __WEBPACK_IMPORTED_MODULE_0__configs_app__["a" /* default */].profile.established,
+			email: __WEBPACK_IMPORTED_MODULE_0__configs_app__["a" /* default */].profile.email,
 			website: __WEBPACK_IMPORTED_MODULE_0__configs_app__["a" /* default */].profile.website,
 			tag: {},
 			tags: [],
@@ -25618,7 +25621,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 194 */
@@ -45752,7 +45755,13 @@ var render = function() {
               _c("div", { staticClass: "info" }, [
                 _vm.content.kind
                   ? _c("span", { staticClass: "kind" }, [
-                      _c("span", [_vm._v(_vm._s(_vm.content.kind))])
+                      _c("span", [
+                        _vm._v(
+                          _vm._s(_vm._f("capitalize")(_vm.content.kind)) +
+                            " #" +
+                            _vm._s(_vm.content.id)
+                        )
+                      ])
                     ])
                   : _vm._e(),
                 _vm._v(" "),
@@ -45763,17 +45772,20 @@ var render = function() {
               _vm._v(" "),
               _vm.content.cover
                 ? [
-                    _c("img", {
-                      staticClass: "cover",
-                      attrs: { src: _vm.cover() }
-                    })
+                    _c("div", [
+                      _c("img", {
+                        staticClass: "cover",
+                        attrs: { src: _vm.cover() }
+                      })
+                    ])
                   ]
                 : _vm._e(),
               _vm._v(" "),
-              _c("div", {
-                staticClass: "title h1",
-                domProps: { innerHTML: _vm._s(_vm.content.title.value) }
-              })
+              _c("div", { staticClass: "title h1" }, [
+                _c("span", {
+                  domProps: { innerHTML: _vm._s(_vm.content.title.value) }
+                })
+              ])
             ],
             2
           ),
@@ -45936,46 +45948,6 @@ var render = function() {
       "main",
       { staticClass: "log-list" },
       [
-        _c(
-          "header",
-          [
-            _c("profile", { staticClass: "lg-no" }),
-            _vm._v(" "),
-            _vm.title
-              ? _c("span", {
-                  staticClass: "title",
-                  domProps: { innerHTML: _vm._s(_vm.title) }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.page.prev
-              ? _c("nav", {}, [
-                  _vm.loading
-                    ? _c("span", { staticClass: "status" }, [
-                        _vm._v(_vm._s(_vm.loading))
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  !_vm.loading
-                    ? _c(
-                        "span",
-                        {
-                          staticClass: "button",
-                          on: {
-                            click: function($event) {
-                              return _vm.retriveNewer()
-                            }
-                          }
-                        },
-                        [_c("i", { staticClass: "icon icon-more-horiz" })]
-                      )
-                    : _vm._e()
-                ])
-              : _vm._e()
-          ],
-          1
-        ),
-        _vm._v(" "),
         _vm._l(_vm.items, function(item, index) {
           return _c("item", {
             key: item.kind + item.id,
@@ -46023,26 +45995,26 @@ var render = function() {
             [
               _c("i", { staticClass: "fas fa-envelope" }),
               _vm._v(" "),
-              _c("span", { staticClass: "no xl-yes" }, [_vm._v("Email")])
+              _c("span", { staticClass: "label no xl-yes" }, [_vm._v("Email")])
             ]
           ),
           _vm._v(" "),
           _c("router-link", { attrs: { to: "/" } }, [
             _c("i", { staticClass: "fas fa-home" }),
             _vm._v(" "),
-            _c("span", { staticClass: "no xl-yes" }, [_vm._v("Home")])
+            _c("span", { staticClass: "label no xl-yes" }, [_vm._v("Home")])
           ]),
           _vm._v(" "),
           _c("a", { staticClass: "inlink", attrs: { href: _vm.atom } }, [
             _c("i", { staticClass: "fas fa-rss-square" }),
             _vm._v(" "),
-            _c("span", { staticClass: "no xl-yes" }, [_vm._v("Atom")])
+            _c("span", { staticClass: "label no xl-yes" }, [_vm._v("Atom")])
           ]),
           _vm._v(" "),
           _c("a", { staticClass: "inlink", attrs: { href: _vm.rss } }, [
             _c("i", { staticClass: "fas fa-rss" }),
             _vm._v(" "),
-            _c("span", { staticClass: "no xl-yes" }, [_vm._v("RSS")])
+            _c("span", { staticClass: "label no xl-yes" }, [_vm._v("RSS")])
           ]),
           _vm._v(" "),
           _vm._m(0)
@@ -46060,7 +46032,7 @@ var staticRenderFns = [
     return _c("a", { staticClass: "inlink" }, [
       _c("i", { staticClass: "fas fa-question-circle" }),
       _vm._v(" "),
-      _c("span", { staticClass: "no xl-yes" }, [_vm._v("Help")])
+      _c("span", { staticClass: "label no xl-yes" }, [_vm._v("Help")])
     ])
   }
 ]
@@ -46246,8 +46218,11 @@ var render = function() {
             _vm.content.kind
               ? _c("span", { staticClass: "kind" }, [
                   _c("span", [
-                    _c("i", { staticClass: "fas fa-external-link-square-alt" }),
-                    _vm._v(" " + _vm._s(_vm.content.kind))
+                    _vm._v(
+                      _vm._s(_vm._f("capitalize")(_vm.content.kind)) +
+                        " #" +
+                        _vm._s(_vm.content.id)
+                    )
                   ])
                 ])
               : _vm._e(),
@@ -46258,13 +46233,21 @@ var render = function() {
           ]),
           _vm._v(" "),
           _vm.content.cover
-            ? [_c("img", { staticClass: "cover", attrs: { src: _vm.cover() } })]
+            ? [
+                _c("div", [
+                  _c("img", {
+                    staticClass: "cover",
+                    attrs: { src: _vm.cover() }
+                  })
+                ])
+              ]
             : _vm._e(),
           _vm._v(" "),
-          _c("div", {
-            staticClass: "title h1",
-            domProps: { innerHTML: _vm._s(_vm.content.title.value) }
-          })
+          _c("div", { staticClass: "title h1" }, [
+            _c("span", {
+              domProps: { innerHTML: _vm._s(_vm.content.title.value) }
+            })
+          ])
         ],
         2
       ),
@@ -46333,24 +46316,33 @@ var render = function() {
       _c("img", { staticClass: "avatar", attrs: { src: _vm.avatar } })
     ]),
     _vm._v(" "),
-    _c("div", [
-      _c("span", { staticClass: "h2" }, [
+    _c("div", { staticClass: "description" }, [
+      _c("span", { staticClass: "name h2" }, [
         _c("a", { attrs: { href: _vm.website } }, [_vm._v(_vm._s(_vm.author))])
       ]),
       _c("br"),
       _vm._v(" "),
-      _c("span", { staticClass: "detail" }, [
-        _c("a", { attrs: { href: _vm.address } }, [
-          _c("i", { staticClass: "fas fa-book" }),
-          _vm._v(" Digital Log")
+      _c("ul", { staticClass: "detail" }, [
+        _c("li", [
+          _c("span", { staticClass: "status" }, [_vm._v(_vm._s(_vm.status))])
         ]),
-        _vm._v(" | "),
-        _c("i", { staticClass: "icon icon-location" }),
-        _vm._v(" " + _vm._s(_vm.location) + "\n\t\t")
-      ]),
-      _c("br"),
-      _vm._v(" "),
-      _c("span", { staticClass: "status" }, [_vm._v(_vm._s(_vm.status))])
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: _vm.address } }, [
+            _c("i", { staticClass: "fas fa-book" }),
+            _vm._v(" " + _vm._s(_vm.address))
+          ])
+        ]),
+        _c("li", [
+          _c("i", { staticClass: "icon icon-location" }),
+          _vm._v(" " + _vm._s(_vm.location))
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("i", { staticClass: "fas fa-calendar" }),
+          _vm._v(" since " + _vm._s(_vm.established))
+        ])
+      ])
     ])
   ])
 }

@@ -3,13 +3,13 @@
 		<component-view :is='view' :ref="content.id" v-on:click="display" v-on:closePost="close" :content="post" :class="status">
 			<div class="content">
 				<div class="info">
-					<span class="kind" v-if="content.kind"><span>{{ content.kind }}</span></span>
+					<span class="kind" v-if="content.kind"><span>{{ content.kind | capitalize }} #{{ content.id }}</span></span>
 					<span class="date">{{ content.timestamp.publish | date }}</span>
 				</div>
 				<template v-if="content.cover">
-					<img class="cover" :src="cover()" />
+					<div><img class="cover" :src="cover()" /></div>
 				</template>
-				<div class="title h1" v-html="content.title.value"></div>
+				<div class="title h1"><span v-html="content.title.value"></span></div>
 			</div>
 			<footer>
 				<template v-if="typeof(content.keywords) !== 'undefined' && content.keywords.length != 0">
