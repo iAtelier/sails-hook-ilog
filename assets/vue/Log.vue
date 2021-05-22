@@ -9,16 +9,16 @@
 		</header>
 
 		<main class="log-list">
-			<!-- <header>
-				<profile class="lg-no"></profile>
-				<!-- <tunekit></tunekit> 
-				<!-- <stories></stories> 
+			<header>
+				<!--<profile class="lg-no"></profile>-->
+				<!-- <tunekit></tunekit>-->
+				<!-- <stories></stories>-->
 				<span v-if="title" v-html="title" class="title"></span>
 				<nav v-if="page.prev" class>
 					<span class="status" v-if="loading">{{ loading }}</span>
 					<span class="button" v-if="!loading" v-on:click="retriveNewer()"><i class="icon icon-more-horiz"></i></span>
 				</nav>
-			</header> -->
+			</header>
 
 			<item v-for="(item, index) in items"
 				:content="item"

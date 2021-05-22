@@ -45948,6 +45948,40 @@ var render = function() {
       "main",
       { staticClass: "log-list" },
       [
+        _c("header", [
+          _vm.title
+            ? _c("span", {
+                staticClass: "title",
+                domProps: { innerHTML: _vm._s(_vm.title) }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.page.prev
+            ? _c("nav", {}, [
+                _vm.loading
+                  ? _c("span", { staticClass: "status" }, [
+                      _vm._v(_vm._s(_vm.loading))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.loading
+                  ? _c(
+                      "span",
+                      {
+                        staticClass: "button",
+                        on: {
+                          click: function($event) {
+                            return _vm.retriveNewer()
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "icon icon-more-horiz" })]
+                    )
+                  : _vm._e()
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
         _vm._l(_vm.items, function(item, index) {
           return _c("item", {
             key: item.kind + item.id,
